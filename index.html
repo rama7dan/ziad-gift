@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>🎉 عيد ميلاد سعيد يا جمال 🎉</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Amiri:wght@400;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: 'Cairo', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  position: relative;
+}
+
+/* خلفية النجوم */
+.stars {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  z-index: -2;
+}
+
+.stars::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, white, transparent),
+    radial-gradient(1px 1px at 40px 70px, white, transparent),
+    radial-gradient(1px 1px at 50px 160px, white, transparent),
+    radial-gradient(2px 2px at 90px 40px, white, transparent),
+    radial-gradient(1px 1px at 130px 80px, white, transparent),
+    radial-gradient(2px 2px at 160px 120px, white, transparent);
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: twinkle 5s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.9; }
+}
+
+.particle {
+  position: fixed;
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 1;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(100vh) translateX(0) scale(0); opacity: 0; }
+  10% { opacity: 1; transform: translateY(90vh) scale(1); }
+  100% { transform: translateY(-10vh) translateX(var(--drift, 50px)) scale(0.3); opacity: 0; }
+}
+
+/* ========== شاشة كلمة المرور ========== */
+.lock-screen {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(ellipse at top, #2d1b4e 0%, #0a0015 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.lock-screen::before {
+  content: '';
+  position: absolute;
+  width: 100%; height: 100%;
+  background-image:
+    radial-gradient(3px 3px at 15% 25%, #ffd700, transparent),
+    radial-gradient(2px 2px at 35% 65%, #ff69b4, transparent),
+    radial-gradient(2px 2px at 65% 35%, #87ceeb, transparent),
+    radial-gradient(3px 3px at 85% 75%, #ffd700, transparent);
+  background-size: 100% 100%;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.lock-content {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 25px;
+  padding: 40px 30px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5), inset 0 0 30px rgba(255,215,0,0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.lock-icon {
+  font-size: 70px;
+  margin-bottom: 15px;
+  display: inline-block;
+  animation: bounceLock 2s ease-in-out infinite;
+}
+
+@keyframes bounceLock {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+.lock-title {
+  font-family: 'Amiri', serif;
+  font-size: 26px;
+  color: #ffd700;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.lock-subtitle {
+  font-size: 15px;
+  color: #e0e0e0;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.lock-hint {
+  font-size: 14px;
+  color: #ffb6c1;
+  margin-bottom: 25px;
+  font-style: italic;
+  background: rgba(255, 182, 193, 0.1);
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px dashed rgba(255, 182, 193, 0.4);
+}
+
+.password-input {
+  width: 100%;
+  padding: 15px 20px;
+  border: 2px solid rgba(255, 215, 0, 0.4);
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-size: 22px;
+  text-align: center;
+  letter-spacing: 8px;
+  outline: none;
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+  transition: all 0.3s;
+  direction: ltr;
+}
+
+.password-input:focus {
+  border-color: #ffd700;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+}
+
+.password-input::placeholder {
+  letter-spacing: 2px;
+  font-size: 14px;
+  color: #888;
+}
+
+.unlock-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 15px;
+  background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
+  color: #000;
+  border: none;
+  border-radius: 15px;
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
+  font-family: 'Cairo', sans-serif;
+  transition: all 0.3s;
+  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+}
+
+.unlock-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(255, 215, 0, 0.5);
+}
+
+.unlock-btn:active {
+  transform: translateY(0);
+}
+
+.error-msg {
+  color: #ff6b6b;
+  font-size: 14px;
+  margin-top: 12px;
+  min-height: 20px;
+  font-weight: 600;
+  animation: shake 0.5s;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+/* ========== المحتوى الرئيسي ========== */
+.main-content {
+  display: none;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.main-content.show {
+  display: block;
+  opacity: 1;
+}
+
+/* الهيرو */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px 20px;
+  position: relative;
+  background: linear-gradient(135deg, rgba(45, 27, 78, 0.6) 0%, rgba(74, 0, 224, 0.4) 100%);
+}
+
+.hero-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(40px, 10vw, 80px);
+  background: linear-gradient(135deg, #ffd700 0%, #ff69b4 50%, #87ceeb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 15px;
+  font-weight: 700;
+  animation: fadeInDown 1.5s ease;
+}
+
+.hero-name {
+  font-family: 'Amiri', serif;
+  font-size: clamp(50px, 12vw, 100px);
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+  margin-bottom: 20px;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.4); }
+  to { text-shadow: 0 0 40px rgba(255, 215, 0, 1), 0 0 60px rgba(255, 105, 180, 0.6); }
+}
+
+.hero-subtitle {
+  font-size: clamp(16px, 4vw, 22px);
+  color: #e0e0e0;
+  margin-bottom: 30px;
+  animation: fadeIn 2s ease;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* الشمعة التفاعلية */
+.candle-section {
+  margin: 30px 0;
+  animation: fadeIn 2.5s ease;
+}
+
+.candle-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.candle-container:hover { transform: scale(1.05); }
+.candle-container:active { transform: scale(0.95); }
+
+.candle-hint {
+  display: block;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #ffd700;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.candle {
+  width: 60px;
+  height: 130px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.candle-body {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 100px;
+  background: linear-gradient(to right, #fff5e6 0%, #ffd700 50%, #ff8c00 100%);
+  border-radius: 8px 8px 5px 5px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3), inset 0 0 10px rgba(255,255,255,0.5);
+}
+
+.candle-wick {
+  position: absolute;
+  bottom: 95px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 15px;
+  background: #333;
+  border-radius: 2px;
+}
+
+.flame {
+  position: absolute;
+  bottom: 108px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 25px;
+  height: 40px;
+  background: radial-gradient(ellipse at center bottom, #fff 0%, #ffd700 30%, #ff8c00 60%, transparent 100%);
+  border-radius: 50% 50% 20% 20%;
+  animation: flicker 0.5s ease-in-out infinite alternate;
+  box-shadow: 0 0 40px #ffd700, 0 0 80px #ff8c00;
+  transition: all 0.5s ease;
+}
+
+@keyframes flicker {
+  0% { transform: translateX(-50%) scale(1) rotate(-2deg); }
+  100% { transform: translateX(-50%) scale(1.05, 1.1) rotate(2deg); }
+}
+
+.flame.out {
+  opacity: 0;
+  transform: translateX(-50%) scale(0) rotate(180deg);
+}
+
+.smoke {
+  position: absolute;
+  bottom: 108px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: rgba(200, 200, 200, 0.8);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.smoke.rise {
+  animation: rise 1.5s ease-out forwards;
+}
+
+@keyframes rise {
+  0% { opacity: 0.8; transform: translateX(-50%) translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-100px) scale(3); }
+}
+
+/* العداد التنازلي */
+.countdown-section {
+  padding: 60px 20px;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.5) 100%);
+}
+
+.section-title {
+  font-family: 'Amiri', serif;
+  font-size: clamp(28px, 6vw, 42px);
+  color: #ffd700;
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: clamp(14px, 3.5vw, 18px);
+  color: #ccc;
+  margin-bottom: 40px;
+  padding: 0 10px;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.countdown-box {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 105, 180, 0.15) 100%);
+  border: 2px solid rgba(255, 215, 0, 0.4);
+  border-radius: 15px;
+  padding: 20px 10px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.countdown-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(255, 215, 0, 0.3);
+}
+
+.countdown-number {
+  font-size: clamp(28px, 8vw, 48px);
+  font-weight: 900;
+  color: #ffd700;
+  display: block;
+  font-family: 'Cairo', sans-serif;
+}
+
+.countdown-label {
+  font-size: clamp(11px, 3vw, 14px);
+  color: #fff;
+  margin-top: 5px;
+  display: block;
+}
+
+/* الرسالة */
+.message-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.message-box {
+  max-width: 700px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  border-radius: 25px;
+  padding: 40px 25px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.message-text {
+  font-family: 'Amiri', serif;
+  font-size: clamp(17px, 4vw, 22px);
+  line-height: 1.9;
+  color: #fff;
+  font-weight: 400;
+}
+
+.message-text .highlight {
+  color: #ffd700;
+  font-weight: 700;
+}
+
+.message-signature {
+  margin-top: 25px;
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(20px, 5vw, 26px);
+  color: #ff69b4;
+}
+
+/* معرض الصور */
+.gallery-section {
+  padding: 60px 20px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  max-width: 1000px;
+  margin: 30px auto 0;
+}
+
+.gallery-item {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 3px solid rgba(255, 215, 0, 0.4);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  transition: transform 0.4s, box-shadow 0.4s;
+  animation: fadeInUp 1s ease backwards;
+}
+
+.gallery-item:nth-child(1) { animation-delay: 0.1s; }
+.gallery-item:nth-child(2) { animation-delay: 0.2s; }
+.gallery-item:nth-child(3) { animation-delay: 0.3s; }
+.gallery-item:nth-child(4) { animation-delay: 0.4s; }
+.gallery-item:nth-child(5) { animation-delay: 0.5s; }
+.gallery-item:nth-child(6) { animation-delay: 0.6s; }
+.gallery-item:nth-child(7) { animation-delay: 0.7s; }
+.gallery-item:nth-child(8) { animation-delay: 0.8s; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.gallery-item:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 20px 50px rgba(255, 215, 0, 0.5);
+  border-color: #ffd700;
+  z-index: 5;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.15);
+}
+
+.gallery-item::after {
+  content: '🔍';
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.gallery-item:hover::after { opacity: 1; }
+
+/* عارض الصور */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.4s;
+}
+
+.lightbox.show { display: flex; }
+
+.lightbox img {
+  max-width: 95%;
+  max-height: 90vh;
+  border-radius: 15px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+  animation: zoomIn 0.4s;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.lightbox-close:hover { background: rgba(255,255,255,0.4); }
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 215, 0, 0.2);
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.lightbox-nav:hover { background: rgba(255, 215, 0, 0.5); }
+.lightbox-prev { left: 15px; }
+.lightbox-next { right: 15px; }
+
+/* مشغل الموسيقى */
+.music-player {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 215, 0, 0.5);
+  border-radius: 50px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 100;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  max-width: 90%;
+}
+
+.music-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #ffd700, #ff8c00);
+  color: #000;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.music-btn:hover { transform: scale(1.1); }
+.music-btn:active { transform: scale(0.95); }
+
+.music-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.music-title {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.music-status {
+  color: #ffd700;
+  font-size: 11px;
+}
+
+/* الفوتر */
+.footer {
+  text-align: center;
+  padding: 40px 20px 100px;
+  color: #888;
+  font-size: 14px;
+}
+
+.heart {
+  color: #ff69b4;
+  display: inline-block;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* زر العودة للأعلى */
+.scroll-top {
+  position: fixed;
+  bottom: 100px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 215, 0, 0.3);
+  border: 1px solid rgba(255, 215, 0, 0.6);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  transition: all 0.3s;
+}
+
+.scroll-top.show { display: flex; }
+.scroll-top:hover { background: rgba(255, 215, 0, 0.6); }
+
+/* كانفاس القصاصات */
+.confetti-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* ميديا كويري */
+@media (max-width: 480px) {
+  .lock-content { padding: 30px 20px; }
+  .countdown-grid { gap: 8px; }
+  .countdown-box { padding: 15px 5px; }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .message-box { padding: 30px 20px; }
+  .music-player { padding: 10px 15px; gap: 10px; }
+  .music-btn { width: 40px; height: 40px; font-size: 18px; }
+  .music-title { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- خلفية النجوم -->
+<div class="stars"></div>
+
+<!-- شاشة القفل -->
+<div class="lock-screen" id="lockScreen">
+  <div class="lock-content">
+    <div class="lock-icon">🎁</div>
+    <h1 class="lock-title">لديك هدية خاصة</h1>
+    <p class="lock-subtitle">هذه المفاجأة مُعدّة خصيصًا لك</p>
+    <p class="lock-hint">💝 أدخل كلمة السر التي تحمل ذكرى مميزة من يوم ميلادك 💝</p>
+    <input type="password" id="passwordInput" class="password-input" placeholder="••••" inputmode="numeric" maxlength="4" autocomplete="off">
+    <button class="unlock-btn" onclick="checkPassword()">✨ افتح المفاجأة ✨</button>
+    <p class="error-msg" id="errorMsg"></p>
+  </div>
+</div>
+
+<!-- المحتوى الرئيسي -->
+<div class="main-content" id="mainContent">
+
+  <!-- قسم الترحيب -->
+  <section class="hero">
+    <h1 class="hero-title">🎂 Happy Birthday 🎂</h1>
+    <h2 class="hero-name">جمال</h2>
+    <p class="hero-subtitle">يوم ميلادك يستاهل كل الحب والاحتفال 🎉</p>
+
+    <!-- الشمعة التفاعلية -->
+    <div class="candle-section">
+      <div class="candle-container" onclick="blowCandle()">
+        <div class="candle">
+          <div class="flame" id="flame"></div>
+          <div class="smoke" id="smoke"></div>
+          <div class="candle-wick"></div>
+          <div class="candle-body"></div>
+        </div>
+      </div>
+      <small class="candle-hint">👆 اضغط على الشمعة لطفّيها وصوّريتي أمنيتك 👆</small>
+    </div>
+  </section>
+
+  <!-- العداد التنازلي -->
+  <section class="countdown-section">
+    <h2 class="section-title">⏳ كم باقي على عيد ميلادك القادم؟ ⏳</h2>
+    <p class="section-subtitle">كل ثانية تمر تقربنا من الاحتفال معك 💕</p>
+    <div class="countdown-grid">
+      <div class="countdown-box">
+        <span class="countdown-number" id="days">0</span>
+        <span class="countdown-label">يوم</span>
+      </div>
+      <div class="countdown-box">
+        <span class="countdown-number" id="hours">0</span>
+        <span class="countdown-label">ساعة</span>
+      </div>
+      <div class="countdown-box">
+        <span class="countdown-number" id="minutes">0</span>
+        <span class="countdown-label">دقيقة</span>
+      </div>
+      <div class="countdown-box">
+        <span class="countdown-number" id="seconds">0</span>
+        <span class="countdown-label">ثانية</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- الرسالة -->
+  <section class="message-section">
+    <div class="message-box">
+      <p class="message-text">
+        يا <span class="highlight">جمال</span>،<br><br>
+        النهارده مش مجرد يوم عادي، ده اليوم اللي اتولدت فيه <span class="highlight">إنسان غالي على قلبي</span> جدًا.
+        أنت مش بس صاحب، أنت <span class="highlight">أخ وروح</span>، وجودك في حياتي نعمة بحمد ربنا عليها كل يوم.
+        <br><br>
+        عايزك تعرف إنك <span class="highlight">من أحلى الناس</span> اللي قابلتهم، وعايزك تفضل دايمًا مبتسم وفرحان، وعايزك تحقق كل اللي نفسك فيه.
+        <br><br>
+        ربنا يحفظك ويخليك <span class="highlight">توأم روحي</span>، ويخلّي السعادة دايمًا رافقاك في حياتك كلها.
+        كل سنة وأنت <span class="highlight">حبيبي يا جمال</span> 💫
+      </p>
+      <p class="message-signature">— من شخص بيحبك جدًا ❤️</p>
+    </div>
+  </section>
+
+  <!-- معرض الصور -->
+  <section class="gallery-section">
+    <h2 class="section-title">📸 لحظات لا تُنسى 📸</h2>
+    <p class="section-subtitle">ذكريات حلوة جمعتنا مع بعض 💕</p>
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox(0)">
+        <img src="https://k.top4top.io/p_39250b38z9.jpg" alt="جمال 1" loading="lazy">
+      </div>
+      <div class="gallery-item" onclick="openLightbox(1)">
+        <img src="https://j.top4top.io/p_3925zyl8r8.jpg" alt="جمال 2" loading="lazy">
+      </div>
+      <div class="gallery-item" onclick="openLightbox(2)">
+        <img src="https://i.top4top.io/p_3925ikrbc7.jpg" alt="جمال 3" loading="lazy">
+      </div>
+      <div class="gallery-item" onclick="openLightbox(3)">
+        <img src="https://h.top4top.io/p_3925tp1o56.jpg" alt="جمال 4" loading="lazy">
+      </div>
+      <div class="gallery-item" onclick="openLightbox(4)">
+        <img src="https://g.top4top.io/p_3925gz40u5.jpg" alt="جمال 5" loading="lazy">
+      </div>
+      <div class="gallery-item" onclick="openLightbox(5)">
+        <img src="https://f.top4top.io/p_3925y7epy4.jpg" alt="جمال 6" loading="lazy">
+      </div>
+      <div class="gallery-item" onclick="openLightbox(6)">
+        <img src="https://e.top4top.io/p_3925xfmev3.jpg" alt="جمال 7" loading="lazy">
+      </div>
+      <div class="gallery-item" onclick="openLightbox(7)">
+        <img src="https://c.top4top.io/p_3925h9gwk1.jpg" alt="جمال 8" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- الفوتر -->
+  <div class="footer">
+    صُنع بكل <span class="heart">❤️</span> من أجلك يا جمال<br>
+    كل سنة وأنت طيب 🎂✨
+  </div>
+</div>
+
+<!-- مشغل الموسيقى -->
+<div class="music-player" id="musicPlayer" style="display:none;">
+  <button class="music-btn" id="musicBtn" onclick="toggleMusic()">▶</button>
+  <div class="music-info">
+    <div class="music-title">🎵 أغنية عيد الميلاد</div>
+    <div class="music-status" id="musicStatus">اضغط للتشغيل</div>
+  </div>
+</div>
+
+<!-- زر العودة للأعلى -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">⬆</button>
+
+<!-- عارض الصور -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">❮</button>
+  <img id="lightboxImg" src="" alt="صورة">
+  <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">❯</button>
+</div>
+
+<!-- كانفاس القصاصات -->
+<canvas class="confetti-canvas" id="confettiCanvas"></canvas>
+
+<!-- مشغل يوتيوب مخفي -->
+<div id="youtubePlayer" style="position:absolute; left:-9999px; top:-9999px;"></div>
+
+<script>
+  // ========== مصفوفة الصور ==========
+  const galleryImages = [
+    "https://k.top4top.io/p_39250b38z9.jpg",
+    "https://j.top4top.io/p_3925zyl8r8.jpg",
+    "https://i.top4top.io/p_3925ikrbc7.jpg",
+    "https://h.top4top.io/p_3925tp1o56.jpg",
+    "https://g.top4top.io/p_3925gz40u5.jpg",
+    "https://f.top4top.io/p_3925y7epy4.jpg",
+    "https://e.top4top.io/p_3925xfmev3.jpg",
+    "https://c.top4top.io/p_3925h9gwk1.jpg"
+  ];
+
+  let currentLightboxIndex = 0;
+
+  // ========== فحص كلمة المرور ==========
+  function checkPassword() {
+    const input = document.getElementById('passwordInput');
+    const error = document.getElementById('errorMsg');
+    const value = input.value.trim();
+
+    if (value === '2002') {
+      error.textContent = '';
+      error.style.color = '#7fff7f';
+      error.textContent = '✓ كلمة السر صحيحة، جاري فتح هديتك...';
+
+      setTimeout(() => {
+        const lockScreen = document.getElementById('lockScreen');
+        lockScreen.style.opacity = '0';
+        lockScreen.style.transform = 'scale(1.2)';
+        setTimeout(() => {
+          lockScreen.style.display = 'none';
+          const main = document.getElementById('mainContent');
+          main.classList.add('show');
+          document.getElementById('musicPlayer').style.display = 'flex';
+          startCountdown();
+          startParticles();
+          startConfetti();
+          // محاولات تشغيل تلقائي
+          setTimeout(() => {
+            tryAutoPlayMusic();
+          }, 800);
+        }, 1000);
+      }, 600);
+    } else {
+      error.textContent = '❌ كلمة السر غير صحيحة، حاول مرة تانية';
+      error.style.color = '#ff6b6b';
+      input.style.borderColor = '#ff6b6b';
+      input.style.animation = 'shake 0.5s';
+      setTimeout(() => {
+        input.style.animation = '';
+        input.style.borderColor = 'rgba(255, 215, 0, 0.4)';
+      }, 500);
+      input.value = '';
+    }
+  }
+
+  document.getElementById('passwordInput').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') checkPassword();
+  });
+
+  // ========== العداد التنازلي ==========
+  function startCountdown() {
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  }
+
+  function updateCountdown() {
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    let nextBirthday = new Date(currentYear, 8, 28); // شهر 8 = سبتمبر (سبتمبر)
+
+    if (now > nextBirthday) {
+      nextBirthday = new Date(currentYear + 1, 8, 28);
+    }
+
+    const diff = nextBirthday - now;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = days;
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds;
+  }
+
+  // ========== الشمعة التفاعلية ==========
+  let candleBlown = false;
+  function blowCandle() {
+    const flame = document.getElementById('flame');
+    const smoke = document.getElementById('smoke');
+    const candleHint = document.querySelector('.candle-hint');
+
+    if (!candleBlown) {
+      flame.classList.add('out');
+      smoke.classList.add('rise');
+      candleHint.textContent = '🎉 أمنيتك اتحققت إن شاء الله! 🎉';
+      candleBlown = true;
+      // إعادة تشغيل الشمعة بعد 5 ثواني
+      setTimeout(() => {
+        flame.classList.remove('out');
+        smoke.classList.remove('rise');
+        candleHint.textContent = '👆 اضغط على الشمعة لطفّيها وتصوّري أمنيتك 👆';
+        candleBlown = false;
+      }, 5000);
+    }
+  }
+
+  // ========== معرض الصور ==========
+  function openLightbox(index) {
+    currentLightboxIndex = index;
+    document.getElementById('lightboxImg').src = galleryImages[index];
+    document.getElementById('lightbox').classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  function closeLightboxOutside(event) {
+    if (event.target.id === 'lightbox') closeLightbox();
+  }
+
+  function navigateLightbox(direction) {
+    currentLightboxIndex = (currentLightboxIndex + direction + galleryImages.length) % galleryImages.length;
+    document.getElementById('lightboxImg').src = galleryImages[currentLightboxIndex];
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (document.getElementById('lightbox').classList.contains('show')) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') navigateLightbox(1); // RTL
+      if (e.key === 'ArrowRight') navigateLightbox(-1);
+    }
+  });
+
+  // ========== مشغل الموسيقى YouTube ==========
+  const YOUTUBE_VIDEO_ID = 'KbtwC_0Uh40';
+  let ytPlayer = null;
+  let isPlaying = false;
+  let playerReady = false;
+
+  // تحميل YouTube IFrame API
+  const tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+
+  window.onYouTubeIframeAPIReady = function() {
+    ytPlayer = new YT.Player('youtubePlayer', {
+      height: '0',
+      width: '0',
+      videoId: YOUTUBE_VIDEO_ID,
+      playerVars: {
+        'autoplay': 0,
+        'controls': 0,
+        'disablekb': 1,
+        'fs': 0,
+        'modestbranding': 1,
+        'playsinline': 1,
+        'rel': 0
+      },
+      events: {
+        'onReady': (event) => {
+          playerReady = true;
+          event.target.setVolume(60);
+        }
+      }
+    });
+  };
+
+  function toggleMusic() {
+    if (!playerReady) {
+      document.getElementById('musicStatus').textContent = 'جاري التحميل...';
+      return;
+    }
+
+    if (isPlaying) {
+      ytPlayer.pauseVideo();
+      isPlaying = false;
+      document.getElementById('musicBtn').textContent = '▶';
+      document.getElementById('musicStatus').textContent = 'متوقف';
+    } else {
+      ytPlayer.playVideo();
+      isPlaying = true;
+      document.getElementById('musicBtn').textContent = '⏸';
+      document.getElementById('musicStatus').textContent = 'يتم التشغيل... 🎶';
+    }
+  }
+
+  function tryAutoPlayMusic() {
+    if (!playerReady) {
+      setTimeout(tryAutoPlayMusic, 500);
+      return;
+    }
+    ytPlayer.playVideo();
+    ytPlayer.playVideo();
+    // محاولات متعددة بسبب قيود المتصفح
+    setTimeout(() => {
+      if (ytPlayer && typeof ytPlayer.getPlayerState === 'function') {
+        const state = ytPlayer.getPlayerState();
+        if (state === 1) {
+          isPlaying = true;
+          document.getElementById('musicBtn').textContent = '⏸';
+          document.getElementById('musicStatus').textContent = 'يتم التشغيل... 🎶';
+        } else {
+          document.getElementById('musicStatus').textContent = 'اضغط للتشغيل 🎵';
+        }
+      }
+    }, 1500);
+  }
+
+  // ========== تأثيرات بصرية ==========
+  function startParticles() {
+    const colors = ['#ffd700', '#ff69b4', '#87ceeb', '#98fb98', '#dda0dd'];
+    setInterval(() => {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      const size = Math.random() * 8 + 4;
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+      particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+      particle.style.left = Math.random() * 100 + 'vw';
+      particle.style.setProperty('--drift', (Math.random() * 100 - 50) + 'px');
+      particle.style.animationDuration = (Math.random() * 6 + 6) + 's';
+      particle.style.boxShadow = '0 0 10px currentColor';
+      document.body.appendChild(particle);
+      setTimeout(() => particle.remove(), 12000);
+    }, 400);
+  }
+
+  // ========== قصاصات الورق ==========
+  const confettiCanvas = document.getElementById('confettiCanvas');
+  const ctx = confettiCanvas.getContext('2d');
+  confettiCanvas.width = window.innerWidth;
+  confettiCanvas.height = window.innerHeight;
+
+  window.addEventListener('resize', () => {
+    confettiCanvas.width = window.innerWidth;
+    confettiCanvas.height = window.innerHeight;
+  });
+
+  let confettiParticles = [];
+  const confettiColors = ['#ffd700', '#ff69b4', '#87ceeb', '#98fb98', '#dda0dd', '#ff8c00', '#ffffff'];
+
+  function startConfetti() {
+    for (let i = 0; i < 150; i++) {
+      confettiParticles.push({
+        x: Math.random() * confettiCanvas.width,
+        y: Math.random() * confettiCanvas.height - confettiCanvas.height,
+        r: Math.random() * 6 + 2,
+        d: Math.random() * 2 + 1,
+        color: confettiColors[Math.floor(Math.random() * confettiColors.length)],
+        tilt: Math.random() * 10 - 5,
+        tiltAngle: 0
+      });
+    }
+    animateConfetti();
+  }
+
+  function animateConfetti() {
+    ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+    confettiParticles.forEach((p, i) => {
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+
+      p.tiltAngle += 0.08;
+      p.y += (Math.cos(p.d) + 1 + p.r / 8) / 2;
+      p.x += Math.sin(p.tiltAngle) * 2;
+      p.tilt = Math.sin(p.tiltAngle) * 12;
+
+      if (p.y > confettiCanvas.height) {
+        confettiParticles[i] = {
+          x: Math.random() * confettiCanvas.width,
+          y: -10,
+          r: p.r,
+          d: p.d,
+          color: p.color,
+          tilt: p.tilt,
+          tiltAngle: p.tiltAngle
+        };
+      }
+    });
+    requestAnimationFrame(animateConfetti);
+  }
+
+  // ========== زر العودة للأعلى ==========
+  window.addEventListener('scroll', () => {
+    const btn = document.getElementById('scrollTop');
+    if (window.scrollY > 300) {
+      btn.classList.add('show');
+    } else {
+      btn.classList.remove('show');
+    }
+  });
+
+  // ========== منع التكبير على الجوال عند الضغط مرتين ==========
+  let lastTouchEnd = 0;
+  document.addEventListener('touchend', (e) => {
+    const now = Date.now();
+    if (now - lastTouchEnd <= 300) {
+      e.preventDefault();
+    }
+    lastTouchEnd = now;
+  }, { passive: false });
+</script>
+</body>
+</html>
